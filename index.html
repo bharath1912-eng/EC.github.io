@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    pre{
+      text-align: center;
+      border: 1px solid black;
+      font-size: x-large;
+      
+      color: yellow;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    var globalVar = 10;
+    var addValue=globalVar+globalVar;
+    function outer() {
+        var outerVar = 10;
+        function inner() {
+          let innerVar = 10;
+          console.log(innerVar); 
+          console.log(outerVar);
+          console.log(addValue);
+
+
+          
+        }
+      
+        inner();
+      }
+      
+      outer();
+      </script>
+  <pre> 
+
+    Execution Context :
+
+1.creation phase. 2.execution phase.
+
+        1. Creation phase:
+
+Global Execution Context :
+
+1.lexical Environment 2. Variable Environment
+
+1.lexical Environment{
+    
+1. Environment Record:
+
+declarative and object;{
+
+var globalVar:Undefined;
+        
+var outerVar =Undefined;
+        
+outer=  outer(){};
+
+inner= inner(){}
+}
+2. OUTER:null...
+
+3.thisBinding": Window {...}  // 'this' refers to the global window object
+  ---------------------------------------------------------------------------
+
+2.VARIABLE ENVERONMENT
+
+1. Environment Record:
+        
+.declarative and object;
+        
+var addValue:undefined;
+      
+3.thisBinding": Window {...}  // 'this' refers to the global window object
+--------------------------------------------------------------------------------------------------------
+      
+  Function Execution context:
+
+  lexical Environm
+  
+1.Environment Record:
+
+declarative and object;{
+        
+inner= inner(){}   ;   
+
+}
+
+3.OUTERer:GEC
+      
+4.thisBinding": outer();///
+
+For inner function sir:
+
+1.Environment Record:
+
+declarative and object;
+        
+let innerVar:undefined;  
+
+}
+
+2.OUTER:outer();
+
+3.thisBinding": inter();
+    */---------------------------------------------------------------------------------------------------------
+
+      EXECUTION PHASE
+
+Global Execution Context :
+
+1.lexical Environment 2.Variable Environment
+        
+1.lexical Environment
+        
+1.Environment Record:{
+        
+declarative and object;
+
+var globalVar:10;
+        
+var outerVar =10;
+        
+outer= function outer(){};
+
+inner= inner(){}
+
+}
+
+2.OUTER:null
+      
+3.thisBinding": Window {...}  // 'this' refers to the global window object}
+      -------------------------------------------------------------------------- 
+
+2.VARIABLE ENVIRONMENT
+
+1.Environment Record:{
+
+declarative and object;
+
+var addValue : globalVar+globalVar:
+}
+
+2.OUTER= null;
+      
+3.thisBinding": Window {...}  // 'this' refers to the global window object
+
+Function Execution context:
+
+lexical Environment
+
+1.Environment Record{
+
+.declarative and object;
+
+inner= inner(){}  
+   
+ }
+
+2.OUTERer:GEC
+      
+3.thisBinding": outer();
+
+      FUNCTION EXECUTION CONTEXT
+
+1.lexical Environment 2. variable Environment
+
+1.Environment Record:{
+
+.declarative and object;
+
+let innerVar:10;  
+}
+
+2.OUTER:outer();
+
+3.thisBinding": inter();
+
+      
+
+    </pre> 
+</body>
+</html> 
+        
+        
